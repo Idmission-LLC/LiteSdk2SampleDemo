@@ -1,0 +1,2 @@
+rootProject.name = "LiteSdk2SampleDemo"
+include ':app'
