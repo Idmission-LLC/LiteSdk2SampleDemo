@@ -11,15 +11,15 @@
 
         android:theme="@style/Theme.SDKDemo">
         <activity
-            android:name="com.idmission.sdk2.sample.FinalSubmitActivity"
+            android:name="com.idmission.sdk2.lite.sample.FinalSubmitActivity"
             android:exported="true" />
         <activity
-            android:name="com.idmission.sdk2.sample.PhotoResultsActivity"
+            android:name="com.idmission.sdk2.lite.sample.PhotoResultsActivity"
             android:exported="true" />
         <activity
-            android:name="com.idmission.sdk2.sample.ServiceCallActivity"
+            android:name="com.idmission.sdk2.lite.sample.ServiceCallActivity"
             android:exported="true" />
-        <activity android:name="com.idmission.sdk2.sample.MainActivity">
+        <activity android:name="com.idmission.sdk2.lite.sample.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
