@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
 
-        android:theme="@style/Theme.SDKDemo">
+        android:theme="@style/Theme.IdentityDemo">
         <activity
             android:name="com.idmission.sdk2.lite.sample.FinalSubmitActivity"
             android:exported="true" />
