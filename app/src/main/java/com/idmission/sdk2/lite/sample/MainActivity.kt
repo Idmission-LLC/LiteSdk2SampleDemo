@@ -7,6 +7,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.idmission.sdk2.client.model.InitializeResponse
 import com.idmission.sdk2.client.model.Response
+import com.idmission.sdk2.client.model.SDKCustomizationOptions
 import com.idmission.sdk2.client.model.UiCustomizationOptions
 import com.idmission.sdk2.identityproofing.IdentityProofingSDK
 import com.idmission.sdk2.utils.LANGUAGE
@@ -55,7 +56,7 @@ class MainActivity : AppCompatActivity() {
                         edtLogin.text.toString(),
                         edtPassword.text.toString(),
                         edtMerchantId.text.toString().toLong(),
-                        uiCustomizationOptions = UiCustomizationOptions(LANGUAGE.valueOf(lang)),
+                        sdkCustomizationOptions = SDKCustomizationOptions(LANGUAGE.valueOf(lang)),
                         enableDebug = false)
 
                 }
