@@ -334,7 +334,7 @@ class LaunchActivity : Activity() {
 ````
 ## SDK documentation
 
-You can find SDK documentation <a href="./-i-dentity--s-d-k/com.idmission.sdk2.identityproofing/-identity-proofing-s-d-k/index.html">here</a>
+You can find SDK documentation <a href="https://demo-documentation.idmission.com/Android-SDK-2/-i-dentity--s-d-k/com.idmission.sdk2.identityproofing/-identity-proofing-s-d-k/index.html">here</a>
 
 ## SDK Flavours
 - Identity SDK
