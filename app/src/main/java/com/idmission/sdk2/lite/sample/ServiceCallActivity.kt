@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.idmission.sdk2.capture.IdMissionCaptureLauncher
+import com.idmission.sdk2.capture.presentation.camera.helpers.CaptureBack
 import com.idmission.sdk2.capture.presentation.camera.helpers.ProcessedCapture
 import com.idmission.sdk2.client.model.CountryMaster
 import com.idmission.sdk2.client.model.IdTypeMaster
@@ -44,7 +45,7 @@ class ServiceCallActivity : AppCompatActivity() {
      */
     private fun setupArrayAdapters() {
         /* IdType Adapter */
-        idTypes = IdentityProofingSDK.getSupportedIdTypeList()
+        idTypes = IdentityProofingSDK.getSupportedIdTypeList(this)
         ArrayAdapter(
             this,
             android.R.layout.simple_spinner_item,
@@ -183,10 +184,10 @@ class ServiceCallActivity : AppCompatActivity() {
                         getSelectedItem(idTypeSpinner, countrySpinner, stateSpinner)
 
                         if (rbWithoutBackCapture.isChecked) {
-                            startService(isBackCaptureRequired = false)
+                            startService(isBackCaptureRequired = CaptureBack.NO)
                             alertDialog!!.dismiss()
                         } else if (rbBackCapture.isChecked) {
-                            startService(isBackCaptureRequired = true)
+                            startService(isBackCaptureRequired = CaptureBack.YES)
                             alertDialog!!.dismiss()
                         } else if (rbDocument.isChecked) {
                             startService(isDocumentCapture = true)
@@ -230,7 +231,7 @@ class ServiceCallActivity : AppCompatActivity() {
      * function to invoke SDK corresponds to selected Service.
      */
     private fun startService(
-        isBackCaptureRequired: Boolean? = null,
+        isBackCaptureRequired: CaptureBack? = null,
         isDocumentCapture: Boolean? = null) {
         if (isBackCaptureRequired != null) {
             IdentityProofingSDK.idValidationAndcustomerEnroll(
