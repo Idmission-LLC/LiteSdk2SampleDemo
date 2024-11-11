@@ -9,9 +9,8 @@ import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.idmission.sdk2.capture.analysis.FaceMatch
+import com.idmission.sdk2.capture.analysis.helpers.FaceMatch
 import com.idmission.sdk2.capture.presentation.camera.helpers.ProcessedCapture
-import org.json.JSONObject
 
 
 internal class PhotoResultsAdapter : RecyclerView.Adapter<PhotoResultsViewHolder>() {
@@ -24,7 +23,7 @@ internal class PhotoResultsAdapter : RecyclerView.Adapter<PhotoResultsViewHolder
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoResultsViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return PhotoResultsViewHolder(inflater.inflate(com.idmission.sdk2.capture.R.layout.item_photo_result, parent, false))
+        return PhotoResultsViewHolder(inflater.inflate(R.layout.item_photo_result, parent, false))
     }
 
     override fun onBindViewHolder(holder: PhotoResultsViewHolder, position: Int) {
@@ -36,17 +35,17 @@ internal class PhotoResultsAdapter : RecyclerView.Adapter<PhotoResultsViewHolder
 
 internal class PhotoResultsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val photoResultImageView: ImageView = itemView.findViewById(R.id.photoResultImageView)
-    private val barcodeResultsText: TextView = itemView.findViewById(com.idmission.sdk2.capture.R.id.barcodeResultTextView)
-    private val barcodeResultsLayout: View = itemView.findViewById(com.idmission.sdk2.capture.R.id.barcodeResultLayout)
-    private val ocrResultsText: TextView = itemView.findViewById(com.idmission.sdk2.capture.R.id.ocrResultTextView)
-    private val ocrResultsLayout: View = itemView.findViewById(com.idmission.sdk2.capture.R.id.ocrResultLayout)
-    private val photoNumberText: TextView = itemView.findViewById(com.idmission.sdk2.capture.R.id.photoNumberTextView)
+    private val barcodeResultsText: TextView = itemView.findViewById(R.id.barcodeResultTextView)
+    private val barcodeResultsLayout: View = itemView.findViewById(R.id.barcodeResultLayout)
+    private val ocrResultsText: TextView = itemView.findViewById(R.id.ocrResultTextView)
+    private val ocrResultsLayout: View = itemView.findViewById(R.id.ocrResultLayout)
+    private val photoNumberText: TextView = itemView.findViewById(R.id.photoNumberTextView)
     private val realSpoofText: TextView = itemView.findViewById(R.id.realSpoofTextView)
     private val faceMatchText: TextView = itemView.findViewById(R.id.faceMatchTextView)
 
     fun bind(processedCapture: ProcessedCapture, index: Int) {
         val number = index + 1
-        photoNumberText.text = itemView.context.getString(com.idmission.sdk2.capture.R.string.photo_number, number)
+        photoNumberText.text = itemView.context.getString(R.string.photo_number, number)
         when (processedCapture) {
             is ProcessedCapture.DocumentDetectionResult.RealDocument -> bindDocumentResult(processedCapture)
             is ProcessedCapture.DocumentDetectionResult.SpoofDocument -> bindSpoofDocumentResult(processedCapture)
@@ -60,17 +59,6 @@ internal class PhotoResultsViewHolder(itemView: View) : RecyclerView.ViewHolder(
                 processedCapture
             )
         }
-//        Log.i("PhotoResultsViewHolder", "Photo $number")
-//        Log.i("PhotoResultsViewHolder", "timeStartedAt:      ${
-//            processedCapture.timeStartedAt!! /
-//            1000}")
-//        Log.i("PhotoResultsViewHolder", "timeDetectedAt:     ${processedCapture.timeDetectedAt!! /
-//            1000}")
-//        Log.i("PhotoResultsViewHolder", "timeWithinBoundsAt: ${processedCapture
-//            .timeWithinBoundsAt!! /
-//            1000}")
-//        Log.i("PhotoResultsViewHolder", "timeFinishedAt:     ${processedCapture.timeFinishedAt!! /
-//            1000}")
     }
 
 
